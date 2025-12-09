@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>2048 落球版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <!-- 顶部信息栏 -->
+        <div class="header">
+            <div class="title">2048 落球</div>
+            <div class="score-board">
+                <div class="score-item">
+                    <div class="label">分数</div>
+                    <div id="score" class="value">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="label">最高</div>
+                    <div id="best" class="value">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 游戏画布容器 -->
+        <div class="game-container">
+            <canvas id="gameCanvas"></canvas>
+            
+            <!-- 下一个球预览 -->
+            <div class="next-ball-container">
+                <div class="next-label">下一个</div>
+                <div id="nextBall" class="next-ball"></div>
+            </div>
+
+            <!-- 瞄准线 -->
+            <div id="aimLine" class="aim-line"></div>
+        </div>
+
+        <!-- 控制按钮 -->
+        <div class="controls">
+            <button id="restartBtn" class="btn btn-restart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M12 4L8 8L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                重新开始
+            </button>
+        </div>
+
+        <!-- 游戏说明 -->
+        <div class="instructions">
+            <p>👆 点击屏幕投放球体</p>
+            <p>🎯 相同数字的球碰撞会合并</p>
+            <p>🏆 合成 2048 就能获胜！</p>
+        </div>
+
+        <!-- 游戏结束遮罩 -->
+        <div id="gameOver" class="game-over hidden">
+            <div class="game-over-content">
+                <h2 id="gameOverTitle">游戏结束</h2>
+                <div class="final-score">
+                    <div class="label">最终得分</div>
+                    <div id="finalScore" class="score">0</div>
+                </div>
+                <button id="retryBtn" class="btn btn-primary">再玩一次</button>
+            </div>
+        </div>
+
+        <!-- 胜利遮罩 -->
+        <div id="gameWin" class="game-over hidden">
+            <div class="game-over-content win">
+                <h2>🎉 恭喜获胜！</h2>
+                <div class="final-score">
+                    <div class="label">最终得分</div>
+                    <div id="winScore" class="score">0</div>
+                </div>
+                <button id="continueBtn" class="btn btn-primary">继续游戏</button>
+                <button id="restartWinBtn" class="btn btn-secondary">重新开始</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

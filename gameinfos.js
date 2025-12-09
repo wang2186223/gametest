@@ -38,6 +38,14 @@ const games_infos = {
             "url": "/games/2048js/index.html",
             "des": "Pure JavaScript 2048 - Fully customizable",
             "category": ["09"]
+        },
+        {
+            "id": "000004",
+            "gname": "2048 Drop Ball",
+            "icon": "2048-cards.jpg",
+            "url": "/games/2048-l/index.html",
+            "des": "Physics-based falling ball 2048 game",
+            "category": ["09"]
         }
     ]
 }
