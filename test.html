@@ -1,0 +1,308 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="/gamebox/img/favicon-128.png" sizes="128x128">
+    <link rel="stylesheet" type="text/css" href="/gamebox/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/gamebox/font/iconfont.css">
+
+    <link rel="stylesheet" type="text/css" href="/gamebox/swiper/swiper-bundle.min.css">
+    <script src="/gamebox/js/jquery.min.js"></script>
+    <script src="/gamebox/swiper/swiper-bundle.min.js"></script>
+
+    <script src="/gamebox/js/lazyload.js"></script>
+    <script src="/gamebox/js/fastclick.js"></script>
+
+
+</head>
+
+<body style="background: #000">
+
+
+    <div class=" container  detailBox">
+        <div class="detaiMain">
+            <div class="detailLeft">
+
+                <div class="ad">
+                    <p>Advertisement</p>
+                </div>
+            </div>
+
+            <div class="detailCenter" id="app">
+                <iframe id="iframeGame" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    scrolling="no" allowfullscreen=""></iframe>
+            </div>
+
+        </div>
+        <div class="detailContBox">
+            <div class="detailCont">
+                <div class="title">
+                    <a href="javascript:history.go(-1)">
+                        <i class="iconfont icon-arrow-go-back-line"></i>
+                    </a>
+
+                </div>
+
+                <div id="game-box-div" class="game-box game-box-opacity">
+                    <div class="pregame-info-container"  style="position:relative; z-index:2; top:10%">
+                        <svg id="box_1" class="game-box-svg" data-name="box 1" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 413 342.51">
+                            <path d="M25,73s6,3-2,9H421s-11-6-3-9Z" transform="translate(-15 -13.5)"
+                                style="fill:#f68124">
+                            </path>
+                            <path d="M90.5,13.5s-65-1.5-65,60h393s4-60-67-60Z" transform="translate(-15 -13.5)"
+                                style="fill:#ef564c"></path>
+                            <path
+                                d="M326,36c0,22.74-84.17,32.43-204.33,37H418.13s3.75-54.7-60.49-58.8l-.43,0c-.84,0-1.68-.09-2.54-.12-1.2,0-2.42-.06-3.67-.06H296C310.09,16,326,21.48,326,36Z"
+                                transform="translate(-15 -13.5)" style="fill:#ed4530"></path>
+                            <ellipse cx="64.17" cy="43.69" rx="35.72" ry="17.15"
+                                transform="translate(-28.45 31.48) rotate(-35.2)" style="fill:#f27164"></ellipse>
+                            <path
+                                d="M75.65,23.74S63,25.54,45,43.59c0,0-1.8,1.81,0,2.71s4.51-1.8,4.51-1.8,9.93-10.84,28-18.06c0,0,3.61-.9,1.81-2.7C79.26,23.74,78.35,22.83,75.65,23.74Z"
+                                transform="translate(-15 -13.5)" style="fill:#ff998f"></path>
+                            <path
+                                d="M23,82s-8,8-8,92S25,318,30,333s13,23,24,23H385s21,1,27-18,16-74,16-185c0,0-2-64-7-71Z"
+                                transform="translate(-15 -13.5)" style="fill:#fbab2d"></path>
+                            <path
+                                d="M75,94s-27,2-30,29-3,155,2,185,21,36,31,36H362s31,3,35-51,5-135,1-170c0,0-1-29-32-29Z"
+                                transform="translate(-15 -13.5)" style="fill:#fdd035"></path>
+                            <path
+                                d="M97,105s-24-1-26,25-3,118,0,179c0,0,2,24,26,24H349s20-2,23-28,4-99,0-175c0,0,0-25-28-25Z"
+                                transform="translate(-15 -13.5)" style="fill:#fbab2d">
+
+
+                            </path>
+                            <path d="M31,91a146.58,146.58,0,0,0-4,22,2,2,0,0,0,2,2c2,0,2-3,2-3s2-17,3-20S32,89,31,91Z"
+                                transform="translate(-15 -13.5)" style="fill:#fdd035"></path>
+                            <path d="M26,123s-4,60-3,82c0,0,0,5,2,5s2-3,2-5,1-55,3-79c0,0,0-5-2-5A2,2,0,0,0,26,123Z"
+                                transform="translate(-15 -13.5)" style="fill:#fdd035"></path>
+                        </svg>
+                    </div>
+
+                    <div class="pregame-info-container" style="position:relative; z-index:3; top: 10%;">
+                        <div id="game-name-text-container">
+                            <div class="GameNameText" style=" display: flex; justify-content: center;">
+                                <span class="GameNameText-span">
+                                    Kids Quiz: SpongeBob Mega Quiz
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+                <div class="progressBox" style="display: none;">
+                    <div class="person">
+                        <div class="running" id="running" style="left: 200px;">
+                            <div class="outer">
+                                <div class="body">
+                                    <div class="arm behind"></div>
+                                    <div class="arm front"></div>
+                                    <div class="leg behind"></div>
+                                    <div class="leg front"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="wrapper">
+                            <div id="jd" class="first" style="width: 200px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="swiper_con">
+                    <div class="swiper preview swiper-initialized swiper-horizontal swiper-free-mode" id="intro">
+                        <div class="swiper-wrapper" id="swiper-wrapper-63c6eb5291dbd4dc" aria-live="polite">
+                        </div>
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                    </div>
+                </div>
+
+                <div class="module" style="display: none">
+                    <h2 tran="description">描述</h2>
+                    <div class="des">
+                        <p> Driive and shoot enemy vehicles to protect the planet from this War and become the ultimate
+                            Hero of all time! </p>
+                    </div>
+                    <div class="moreB">
+                        <a class="moreShow" href="javascript:void(0);" tran="read">阅读更多</a>
+                    </div>
+                </div>
+                <div class="module" style="display: none">
+                    <h2 tran="instruction">介绍</h2>
+                    <div class="des">
+                        <p> Earth is under attack! The evil forces are here to destroy everything! And you have to save
+                            the planet by shooting down all the enemies! Save yourself from their attack and rescue
+                            hostages to earn coins! </p>
+                    </div>
+                    <div class="moreB">
+                        <a class="moreShow" href="javascript:void(0);" tran="read">阅读更多</a>
+                    </div>
+                </div>
+                <ul class="gameTag" style="display: none">
+                    <li>Action</li>
+                    <li>shooter</li>
+                    <li>casual</li>
+                    <li>single plarer</li>
+                    <li>Stylized</li>
+                </ul>
+                <div class="mightLike" style="display: none">
+                    <h2 tran="mightLike">猜你喜欢</h2>
+                    <ul class="mightList">
+                        <li>
+                            <a href="/interest/detail/88/2077">
+                                <div class="leftIcon">
+                                    <div class="thumb">
+                                        <img class="lazyLoad" data-src="/uploads/gamepic/20230210/MiniWar_512x512.jpg"
+                                            alt="" data-cfsrc="/gamebox/img/lazy.png"
+                                            src="https://www.likebox.top/gamebox/img/lazy.png">
+                                    </div>
+                                    <dl>
+                                        <dt>Mini War</dt>
+                                        <dd class="tags">
+                                            <p>
+                                                Hot </p>
+                                        </dd>
+                                        <dd>
+                                            <span>18.3K</span>Player
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <p tran="play" class="PlayBtn">游玩</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/interest/detail/88/1888">
+                                <div class="leftIcon">
+                                    <div class="thumb">
+                                        <img class="lazyLoad" data-src="/uploads/gamepic/20220505/miningrush.jpg" alt=""
+                                            data-cfsrc="/gamebox/img/lazy.png"
+                                            src="https://www.likebox.top/gamebox/img/lazy.png">
+                                    </div>
+                                    <dl>
+                                        <dt>Mining Rush</dt>
+                                        <dd class="tags">
+                                            <p>
+                                                Hot </p>
+                                        </dd>
+                                        <dd>
+                                            <span>97.5K</span>Player
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <p tran="play" class="PlayBtn">游玩</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/interest/detail/88/1789">
+                                <div class="leftIcon">
+                                    <div class="thumb">
+                                        <img class="lazyLoad" data-src="/uploads/gamepic/20220420/Marshmallow_Rush.png"
+                                            alt="" data-cfsrc="/gamebox/img/lazy.png"
+                                            src="https://www.likebox.top/gamebox/img/lazy.png">
+                                    </div>
+                                    <dl>
+                                        <dt>Marshmallow Rush</dt>
+                                        <dd class="tags">
+                                            <p>
+                                                Hot </p>
+                                        </dd>
+                                        <dd>
+                                            <span>311K</span>Player
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <p tran="play" class="PlayBtn">游玩</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/interest/detail/88/1897">
+                                <div class="leftIcon">
+                                    <div class="thumb">
+                                        <img class="lazyLoad" data-src="/uploads/gamepic/20220505/Knife_Hit_Up.jpg"
+                                            alt="" data-cfsrc="/gamebox/img/lazy.png"
+                                            src="https://www.likebox.top/gamebox/img/lazy.png">
+                                    </div>
+                                    <dl>
+                                        <dt>Knife Hit Up</dt>
+                                        <dd class="tags">
+                                            <p>
+                                                Hot </p>
+                                        </dd>
+                                        <dd>
+                                            <span>328K</span>Player
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <p tran="play" class="PlayBtn">游玩</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/interest/detail/88/1821">
+                                <div class="leftIcon">
+                                    <div class="thumb">
+                                        <img class="lazyLoad" data-src="/uploads/gamepic/20220420/Truck-Deliver-3d.png"
+                                            alt="" data-cfsrc="/gamebox/img/lazy.png"
+                                            src="https://www.likebox.top/gamebox/img/lazy.png">
+                                    </div>
+                                    <dl>
+                                        <dt>Truck Deliver 3d</dt>
+                                        <dd class="tags">
+                                            <p>
+                                                Hot </p>
+                                        </dd>
+                                        <dd>
+                                            <span>190K</span>Player
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <p tran="play" class="PlayBtn">游玩</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="ad adbottom">
+        </div>
+    </div>
+
+    <div class="btnMenu">
+        <i class="iconfont icon-menu-2-line"></i>
+    </div>
+
+
+
+
+    <iframe height="1" width="1"
+        style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+    <iframe allow="join-ad-interest-group" data-tagging-id="G-C3W7T6H5QW" data-load-time="1729903368004" height="0"
+        width="0"
+        src="https://td.doubleclick.net/td/ga/rul?tid=G-C3W7T6H5QW&amp;gacid=2121316525.1723554058&amp;gtm=45je4ao0v887060490z8812775298za200zb812775298&amp;dma=0&amp;gcs=G111&amp;gcd=13t3t3t3t5l1&amp;npa=0&amp;pscdl=noapi&amp;aip=1&amp;fledge=1&amp;frm=0&amp;tag_exp=101533421~101823848~101925629&amp;z=1084563547"
+        style="display: none; visibility: hidden;"></iframe>
+    <deepl-input-controller></deepl-input-controller>
+</body>
+
+</html>
+
+<a href="/interest/detail/88/1947">
+    <div class="thumb">
+        <img class="lazyLoad" data-src="/uploads/gamepic/20221011/Battle_Tank.png" alt="" data-cfsrc="/gamebox/img/lazy.png" src="https://www.likebox.top/gamebox/img/lazy.png">
+    </div>
+  
+</a>

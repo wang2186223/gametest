@@ -1,0 +1,32 @@
+
+@media only screen and (min-width: 720px) {
+    .game-container {
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr
+    }
+
+    .tag-game {
+        grid-template-columns: 1fr 1fr!important
+    }
+
+    .gt {
+        min-height: 135px
+    }
+
+    #gla {
+        order: 2
+    }
+}
+
+
+div.thumb a img {
+    width: 100%;
+    aspect-ratio: 4/4;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box
+}
+
+.thumb img {
+    border: none!important;
+    object-fit: fill
+}

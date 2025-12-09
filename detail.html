@@ -1,0 +1,471 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="/gamebox/img/favicon-128.png" sizes="128x128">
+    <link rel="stylesheet" type="text/css" href="/gamebox/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/gamebox/css/global.css">
+    <link rel="stylesheet" type="text/css" href="/gamebox/font/iconfont.css">
+
+    <link rel="stylesheet" type="text/css" href="/gamebox/swiper/swiper-bundle.min.css">
+    <script src="/gamebox/js/jquery.min.js"></script>
+    <script src="/gamebox/swiper/swiper-bundle.min.js"></script>
+    <script src="/gamebox/js/lazyload.js"></script>
+    <script src="/gamebox/js/fastclick.js"></script>
+    <script data-chunk="main" src="/gameinfos.js"></script>
+
+    <style>
+        @media screen and (orientation: landscape) and (max-height: 600px) {
+
+            /* 横屏样式 */
+            .detailBox {
+                height: calc(100vh - 0px) !important;
+            }
+
+            .container .ad {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body style="background: #000">
+
+    <header>
+        <div class="container detailHeader">
+            <a href="javascript:history.go(-1)">
+                <i class="iconfont icon-arrow-go-back-line"></i>
+            </a>
+      
+        </div>
+    </header>
+
+    <div class=" container  detailBox">
+        <div class="detaiMain">
+            <div class="detailLeft">
+                <ul class="detailGameList">
+                   
+ 
+                </ul>
+          
+            </div>
+
+            <div class="detailCenter" id="app">
+                <iframe id="iframeGame" src="" frameborder="0"
+                allowfullscreen="true" allow="autoplay; fullscreen; camera; focus-without-user-activation *; monetization; gamepad; keyboard-map *; xr-spatial-tracking; clipboard-write; web-share; accelerometer; magnetometer; gyroscope"
+                    scrolling="no" allowfullscreen=""></iframe>
+            </div>
+
+            <div class="detailRight">
+                <!-- <div class="ad">
+                    <p>Advertisement</p>
+                </div> -->
+
+                <ul class="detailGameList">
+                   
+             
+                </ul>
+            </div>
+        </div>
+        <div class="detailContBox">
+            <div class="detailCont">
+                <div class="title">
+                  <div style="height: 100%;">
+                    <a href="javascript:history.go(-1)">
+                      <img src="/gamebox/img/back.png" style="width:auto;height:100%; padding: 5px;">
+                
+                
+                    </a>
+                  </div>
+                
+                  <div style="height: 100%;">
+                    <a href="/">
+                      <img src="/gamebox/img/home.png" style="width:auto;height:100%; padding: 5px;">
+                
+                
+                    </a>
+                  </div>
+                </div>
+
+          
+        
+               
+        <div class="pregame-container" id="pregame-container" style="height: auto !important;">
+
+
+            <div class="pregame-main">
+              <div class="blurred-img">
+  
+                <svg id="game-back" class="pregame-back" preserveAspectRatio="none meet" data-name="game-back1"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1797.49 518.52">
+                  <path
+                    d="M1800,343.36c-.65-20.7-5.09-55.46-5.09-55.46s-8.17-43.62-4.91-69.13,22.5-138.89-33.16-181.49C1706.59,7,1649.85-.8,1540.29,4s-325.32,9.31-414-1.41c0,0-62.91,1.3-87.69,2.41S899.32,12.84,869.32,8.4,643,3.22,643,3.22s-85.74-5-194.16-.25c0,0-2.52,0-7.15.2,4.69-.12,7.14-.2,7.15-.2-26.33,1.15-54,2.87-82.09,5.38,35.3-3.49,62.63-4.75,74.94-5.18C413.48,3.91,304,6.13,154,.93-20.88-5.13,3.69,183.9,3.69,183.9A114.25,114.25,0,0,1,18.46,144c-8.18,17.89-11.35,38-8.38,60.49,0,0,4.89,4.44,5.87-17.74.31-7-2-26.34,13.16-49.77-5.62,54.85-4,108.47-3.95,109.07-9,108.3-8.52,219.48,43.4,234.79,65.22,19.23,256.19,22.94,287.5,22.57s317.61,7.64,388,.62,321-6.45,394.57-2.7c0,0,1.3,5.18-21.53,3.7s-247.82-1.74-285.65.85c0,0-2.61-5.55-32.61,0,0,0-377.6,6.77-416.08,6.77,0,0-67.18.74-75.65-2.22s-.66-4.07-20.22-3.7S97.8,498.64,64.54,485,11.71,418.78,15.63,360.74s6.1-93.85,0-126.45-6-4.06-7.87,1.85-8.11,77.69,0,117.2,2,81,2,81-7.18,60.26,112.82,70.61l81.52,5.92s17.59,1.24,9.79-3.33L361.28,516s43,7.39,101.08,0c0,0,23.48-6.29,62-3.7s78.91,6.78,119.35,3.45,345.77-8.1,462.39-.35S1246.27,513,1246.27,513s20.22-2.21-15-6.28-111.52-13.68-71.08-12.2,108.26,8.13,115.43,3.33c0,0,90,1.84,110.87,5.17s146.09,0,207.39-5.89,39.78.74,39.78.74-50.86,8.5-73,7.76-101.09-.74-121.3,1.11,32,8.14,57.39,7.77,159.13-4.44,219.78-44.37,71.74-72.83,75-104.63c0,0-4.56-3.69-15,22.92,0,0,16.1-52.17-10.43-106.47,0,0,2.68-13.94,8.47-2.22,8.49,17.16,17.61,73.2,17,75.79S1800.62,364.06,1800,343.36ZM189.1,487.92c0-3.33,38.48,1.85,38.48,1.85C212.58,493.46,189.1,491.25,189.1,487.92Zm333.49-468c-21.57-1.84-141.26-9.34-258.06.32l2.6-1.85c84.11-6.73,226.1-13.86,270.52,1.4C537.65,19.79,565.48,23.59,522.59,19.92ZM82.13,24c-2.37-.78-5-1.65-7.89-2.57C153.3,10.07,258.94,4.13,400.15,7.66,400.15,7.66,199.2,10.41,82.13,24ZM1462.8,33.33C1440.62,38.5,1378,36.66,1338.88,37s-23.48-5.17-23.48-5.17,49.57-4.07,78-3,105.25-3.37,105.25-3.37C1565.19,26.58,1485,28.15,1462.8,33.33Zm-118-14.48c4.57.2,99.93-3.13,102.39-3,33.26,1.22-66.52,6.08-66.52,6.08-5.29,4.41-20.22,1.93-39.13,1.93S1340.19,18.65,1344.75,18.85Zm-18.91-.46c9.13,3.66-41.74,8.54-43,3S1325.84,18.39,1325.84,18.39ZM1116.27,8.19s-11.73-.44,45.66,4.34,11.08,1.94,7.17,4.16-31.3-1.11-63.91-5.91S1116.27,8.19,1116.27,8.19ZM892.8,17.27c46.3,4.81-36.52,2.22-75,0S770.19,11,770.19,11C787.8,8.4,846.49,12.47,892.8,17.27ZM823,492.74c-34.56,3.57-82.17,9.38-70.43,3.88,0,0,76.3-6.69,82.17-7.75S857.58,489.18,823,492.74Zm149.35-4.68s93.91-2.22,114.13,0S1010.19,490.65,972.36,488.06Zm297.2-457C1242.2,32.19,898.71,29.16,853,29.55S841.1,25.2,841.1,25.2c21.41-2.91,381.28,1.55,421.76,1.66S1269.56,31,1269.56,31Zm386.93,439.53s-62.61,23.66-148.69,19.6c0,0-125.87,12.17-236.74,3.67,0,0-76.25-11.64-11.74-8.5,53,2.57,78.88,2.14,198.91,2.24s158.48-8.87,175.43-15.16S1676.06,461.67,1656.49,470.54Zm121.83-324.88-3.26,89.1s-10.06,18.87-9.13,0c1.87-38.36,9.79-136.66,6.93-135.18,0,0-1.72-68.9-110-80.73s-21-5.43-6.52-4.44c0,0,129.78,0,127.17,110.18C1783.53,124.59,1790.06,158.6,1778.32,145.66Z"
+                    transform="translate(-2.51 -0.79)" style="fill:#8eeff8"></path>
+                </svg>
+  
+  
+              </div>
+  
+              <div class="pregame-bg">
+  
+                <div id="game-box-div" class="game-box game-box-opacity">
+                  <svg id="box_1" class="game-box-svg" data-name="box 1" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 413 342.51">
+                    <path d="M25,73s6,3-2,9H421s-11-6-3-9Z" transform="translate(-15 -13.5)" style="fill:#f68124"></path>
+                    <path d="M90.5,13.5s-65-1.5-65,60h393s4-60-67-60Z" transform="translate(-15 -13.5)"
+                      style="fill:#ef564c"></path>
+                    <path
+                      d="M326,36c0,22.74-84.17,32.43-204.33,37H418.13s3.75-54.7-60.49-58.8l-.43,0c-.84,0-1.68-.09-2.54-.12-1.2,0-2.42-.06-3.67-.06H296C310.09,16,326,21.48,326,36Z"
+                      transform="translate(-15 -13.5)" style="fill:#ed4530"></path>
+                    <ellipse cx="64.17" cy="43.69" rx="35.72" ry="17.15" transform="translate(-28.45 31.48) rotate(-35.2)"
+                      style="fill:#f27164"></ellipse>
+                    <path
+                      d="M75.65,23.74S63,25.54,45,43.59c0,0-1.8,1.81,0,2.71s4.51-1.8,4.51-1.8,9.93-10.84,28-18.06c0,0,3.61-.9,1.81-2.7C79.26,23.74,78.35,22.83,75.65,23.74Z"
+                      transform="translate(-15 -13.5)" style="fill:#ff998f"></path>
+                    <path d="M23,82s-8,8-8,92S25,318,30,333s13,23,24,23H385s21,1,27-18,16-74,16-185c0,0-2-64-7-71Z"
+                      transform="translate(-15 -13.5)" style="fill:#fbab2d"></path>
+                    <path d="M75,94s-27,2-30,29-3,155,2,185,21,36,31,36H362s31,3,35-51,5-135,1-170c0,0-1-29-32-29Z"
+                      transform="translate(-15 -13.5)" style="fill:#fdd035"></path>
+                    <path d="M97,105s-24-1-26,25-3,118,0,179c0,0,2,24,26,24H349s20-2,23-28,4-99,0-175c0,0,0-25-28-25Z"
+                      transform="translate(-15 -13.5)" style="fill:#fbab2d"></path>
+                    <path d="M31,91a146.58,146.58,0,0,0-4,22,2,2,0,0,0,2,2c2,0,2-3,2-3s2-17,3-20S32,89,31,91Z"
+                      transform="translate(-15 -13.5)" style="fill:#fdd035"></path>
+                    <path d="M26,123s-4,60-3,82c0,0,0,5,2,5s2-3,2-5,1-55,3-79c0,0,0-5-2-5A2,2,0,0,0,26,123Z"
+                      transform="translate(-15 -13.5)" style="fill:#fdd035"></path>
+                  </svg>
+  
+                  <div class="pregame-info-container">
+                    <div id="game-name-text-container">
+                      <div class="GameNameText">
+                        <span class="GameNameText-span">
+                          Kids Quiz: SpongeBob Mega Quiz
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="pregame-img-container hover-opacity" id="ClickToPlayButtton">
+                  <div class="play-btn">
+                    <div id="play-triangle-div" class="play-triangle"> <svg class="triangle-svg" width="50px"
+                        height="50px" viewBox="0 0 20 20" fill="#fff">
+                        <path
+                          d="M15.795 11.272L7.795 16.272C6.79593 16.8964 5.5 16.1782 5.5 15L5.5 5.00002C5.5 3.82186 6.79593 3.1036 7.795 3.72802L15.795 8.72802C16.735 9.31552 16.735 10.6845 15.795 11.272Z"
+                          fill="#fff"></path>
+                      </svg></div>
+                  </div>
+                  <img
+                    src="/assets/icons/game/Amazing-bubble-breaker.jpg"
+                    alt="Kids Quiz: SpongeBob Mega Quiz">
+                </div>
+  
+              </div>
+            </div>
+  
+    
+              <div class="pregame-ad preGameAdResponsive" id="pregame-ad-div" data-ad-client="ca-pub-5761315212431575"
+              data-ad-slot="9252224047" data-ad-slot-play="6525217845">
+              <div class="ad-container preGameAdResponsive">
+       
+              </div>
+            </div> 
+     
+           
+  
+  
+            <div class="game-show-tag">
+              <div class="tag-name-text more-game">
+                <img class="tag-bg" src="/gamebox/img/more.png">
+                <img class="tag-icon" src="/gamebox/img/icon-other.png">
+                More Games
+              </div>
+              <div class="game-container" id="pregame-more-games-div">
+  
+                
+              </div>
+            </div>
+  
+          </div>
+  
+
+
+                <div class="progressBox" style="display: none;">
+                    <div class="person">
+                        <div class="running" id="running" style="left: 200px;">
+                            <div class="outer">
+                                <div class="body">
+                                    <div class="arm behind"></div>
+                                    <div class="arm front"></div>
+                                    <div class="leg behind"></div>
+                                    <div class="leg front"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="wrapper">
+                            <div id="jd" class="first" style="width: 200px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div class="ad adbottom">
+        </div>
+    </div>
+
+    <div class="btnMenu">
+        <i class="iconfont icon-menu-2-line"></i>
+    </div>
+
+
+    <input type="hidden" id="screen" value="0">
+    <input type="hidden" id="game_id" value="2103">
+    <input type="hidden" id="collect_id" value="2103">
+
+
+
+
+    <script type="text/javascript">
+
+        
+        var val = $('#screen').val();
+
+        function w_ht() {
+            $('.detailCenter').addClass('act');
+            $('.detailLeft').addClass('act');
+            $('.detailRight').addClass('act');
+        }
+
+        var isDesk = true;
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+             isDesk = false;
+        } else {
+            isDesk = true;
+            if (val == 0) {
+                w_ht();
+                $('#iframeGame').addClass('actq');
+                window.addEventListener("resize", response_size);
+                response_size();
+                function response_size() {
+                    var app_iframe = document.getElementById('iframeGame')
+                    var w_c = 9 / 16 * app_iframe.offsetHeight;
+                    app_iframe.style.width = w_c + 'px';
+                }
+            }
+        };
+
+        var iframeValue = $('#iframeValue').val();
+
+        load = true;
+
+        function iframe_load() {
+            $('.detailContBox').css('display', 'none');
+            $('.btnMenu').css('display', 'flex');
+            console.log("playGame");
+            if (load) {
+                document.querySelector('#iframeGame').src = gameinfo.url;
+            }
+            load = false
+        }
+
+        function iframe_hide(){
+           document.querySelector('#iframeGame').src = ""
+        }
+
+        $('.btnMenu').click(function () {
+             iframe_hide();
+             window.location.href =  "/detail.html?id=" + gameid;
+        });
+
+
+
+        $('.open-detail').click(function () {
+            $('.detailContBox').css('display', 'flex')
+        });
+
+
+        var language = localStorage.getItem("language");
+
+
+        var leftMoreEl = document.querySelector('.detailLeft.act > ul');
+
+        var rightMoreEl = document.querySelector('.detailRight.act > ul');
+
+        var moreGameEl = document.querySelector('#pregame-more-games-div');
+
+        var iconEl = document.querySelector("#ClickToPlayButtton > img");
+
+        var gameTittleEl = document.querySelector('#game-name-text-container > div > span');
+
+        var backDetailBtnEl = document.querySelector('body > header > div > a');
+
+        
+
+        var gameid;
+
+        var moreGames = [];
+
+        var gameinfo = 
+        {
+            "id": "000001",
+            "gname": "Alien Attack",
+            "icon": "alien_attack.jpg",
+            "url": "/games/alien-attack/v010/index.html",
+            "category": ["00"]
+        }
+        
+
+        function ShowGameInfo()
+        {
+            var url = window.location.href;
+            
+            // 创建一个 URL 对象
+            var urlObj = new URL(url);
+            
+            // 使用 URLSearchParams 对象来解析查询字符串
+            var params = new URLSearchParams(urlObj.search);
+            // 获取参数值
+            gameid = params.get('id');
+
+
+            gameinfo =  games_infos.gameList.filter((item) => item.id === gameid)[0];
+
+            if(gameid == null){
+                window.location.href = "/";
+                return;
+            }
+
+            iconEl.src = gamepath + gameinfo.icon;
+
+            var name = gameinfo.gname.replaceAll("_"," ");
+            name = name.replaceAll("-"," ");
+            gameTittleEl.innerHTML = name;
+
+            
+
+            backDetailBtnEl.href = "/detail.html?id=" + gameid;
+
+        }
+        var categorypath = "/assets/icons/category/";
+        var gamepath  = "/assets/icons/game/";
+
+        var randomCount = 48;
+
+        function GetRandomGames(){
+              var posArray =[];
+              for(var i = 0; i < games_infos.gameList.length; i++){
+                    posArray.push(i);
+              }
+
+
+              for(var i = 0; i < randomCount; i++){
+
+                  var pos = getRandomInt(0,posArray.length-i);
+                  
+                  moreGames.push(games_infos.gameList[posArray[pos]]);
+                
+                  posArray.splice(pos, 1);
+              }
+        }
+
+
+        function getRandomInt(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function ShowDeskRelatedGames()
+        {
+      
+            for(var i = 0; i < 6; i++){
+              var oLi = document.createElement("li");
+              var icon = gamepath + moreGames[i].icon;
+              var gameid = moreGames[i].id;
+              var ahref = "/detail.html?id=" + gameid;
+              var name= moreGames[i].gname.replaceAll("_"," ");
+              name = name.replaceAll("-"," ");
+               oLi.innerHTML = '<a href="' + ahref + '"> <div class="thumb"><img class="lazyLoad" data-src="' + icon + '" alt="" data-cfsrc="/gamebox/img/lazy.png" src="' + icon + '"></div></a>'
+          
+               leftMoreEl.appendChild(oLi);
+              }
+
+              for(var i = 6; i < 12; i++){
+              var oLi = document.createElement("li");
+              var icon = gamepath + moreGames[i].icon;
+              var gameid = moreGames[i].id;
+              var ahref = "/detail.html?id=" + gameid;
+              var name= moreGames[i].gname.replaceAll("_"," ");
+              name = name.replaceAll("-"," ");
+               oLi.innerHTML = '<a href="' + ahref + '"> <div class="thumb"><img class="lazyLoad" data-src="' + icon + '" alt="" data-cfsrc="/gamebox/img/lazy.png" src="' + icon + '"></div></a>'
+          
+               rightMoreEl.appendChild(oLi);
+              }
+
+              
+        }
+
+
+        function ShowMoreGames()
+        {
+        
+         
+
+          for (var i = 0; i < randomCount; i++) {
+            var divEl = document.createElement("div");
+            divEl.className = "thumb";
+            if( moreGames[i] == null){
+              continue;
+            }
+            var icon = gamepath + moreGames[i].icon;
+            var gameid = moreGames[i].id;
+            var ahref = "/detail.html?id=" + moreGames[i].id;
+            var name = moreGames[i].gname.replaceAll("_", " ");
+            name = name.replaceAll("-"," ");
+            divEl.innerHTML = '<a style="background:rgb(167 248 255 / .6)" href="' + ahref + '"><div class="img-container"><img src="' + icon + '" alt="' + name + '"> </div><div class="GameText"><div class="GameName" style="color:#00636c">' + name + '</div></div> </a>'
+
+            moreGameEl.appendChild(divEl);
+          }
+
+
+        }
+
+
+
+        function GetInitEls(){
+           leftMoreEl = document.querySelector('.detailLeft.act > ul');
+
+           rightMoreEl = document.querySelector('.detailRight.act > ul');
+        }
+
+  
+
+        $(document).ready(function () {
+          iframe_hide();
+          ShowGameInfo();
+          GetInitEls(); 
+          GetRandomGames();
+          isDesk&&ShowDeskRelatedGames();
+          ShowMoreGames();
+        });
+
+
+        $('#ClickToPlayButtton').click(function () {
+            iframe_load()
+
+        
+        });
+    </script>
+
+    <deepl-input-controller></deepl-input-controller>
+</body>
+
+</html>
