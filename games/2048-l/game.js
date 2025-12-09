@@ -28,8 +28,8 @@ const CONFIG = {
     minValue: 2,
     maxStartValue: 32,
     gravity: 0.8,
-    restitution: 0.3,
-    friction: 0.1,
+    restitution: 0.6,   // 弹性系数从 0.3 提高到 0.6（更多弹跳）
+    friction: 0.05,     // 摩擦力从 0.1 降低到 0.05（减少能量损失）
     mergeDelay: 100,
     gameOverLine: 150,  // 游戏结束线高度（增加到150）
     dropHeight: 80      // 球体投放高度
@@ -62,7 +62,7 @@ class Ball2048Game {
         this.world = this.engine.world;
         this.world.gravity.y = CONFIG.gravity;
 
-        // 创建渲染器
+        // 创建渲染器（禁用默认渲染，使用自定义绘制）
         this.render = Render.create({
             canvas: this.canvas,
             engine: this.engine,
@@ -70,17 +70,20 @@ class Ball2048Game {
                 width: this.canvas.width,
                 height: this.canvas.height,
                 wireframes: false,
-                background: 'transparent'
+                background: 'transparent',
+                enabled: false  // 禁用 Matter.js 默认渲染
             }
         });
 
         // 创建边界墙
         this.createWalls();
 
-        // 启动引擎和渲染
+        // 启动引擎
         const runner = Runner.create();
         Runner.run(runner, this.engine);
-        Render.run(this.render);
+        
+        // 使用自定义渲染循环
+        this.startCustomRender();
 
         // 碰撞检测
         Events.on(this.engine, 'collisionStart', (event) => {
@@ -90,7 +93,6 @@ class Ball2048Game {
         // 每帧更新
         Events.on(this.engine, 'afterUpdate', () => {
             this.checkGameOver();
-            this.drawBalls();
         });
 
         // 设置事件监听
@@ -280,42 +282,83 @@ class Ball2048Game {
         });
     }
 
+    startCustomRender() {
+        const animate = () => {
+            requestAnimationFrame(animate);
+            
+            // 清空画布
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            
+            // 绘制所有球体
+            this.drawBalls();
+        };
+        animate();
+    }
+
     drawBalls() {
         this.balls.forEach(ball => {
             const { x, y } = ball.position;
             const radius = ball.circleRadius;
             const value = ball.value;
+            const angle = ball.angle;
 
-            // 绘制球体
-            const gradient = this.ctx.createRadialGradient(x - radius/3, y - radius/3, 0, x, y, radius);
+            this.ctx.save();
+            this.ctx.translate(x, y);
+            this.ctx.rotate(angle);
+
+            // 绘制球体渐变
+            const gradient = this.ctx.createRadialGradient(-radius/3, -radius/3, 0, 0, 0, radius);
             const colors = BALL_COLORS[value] || BALL_COLORS[4096];
             gradient.addColorStop(0, colors.gradient[0]);
             gradient.addColorStop(1, colors.gradient[1]);
 
             this.ctx.fillStyle = gradient;
             this.ctx.beginPath();
-            this.ctx.arc(x, y, radius, 0, Math.PI * 2);
+            this.ctx.arc(0, 0, radius, 0, Math.PI * 2);
             this.ctx.fill();
 
             // 绘制高光效果
             const highlightGradient = this.ctx.createRadialGradient(
-                x - radius/3, y - radius/3, 0,
-                x - radius/3, y - radius/3, radius/2
+                -radius/3, -radius/3, 0,
+                -radius/3, -radius/3, radius/2
             );
-            highlightGradient.addColorStop(0, 'rgba(255, 255, 255, 0.4)');
+            highlightGradient.addColorStop(0, 'rgba(255, 255, 255, 0.5)');
             highlightGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
 
             this.ctx.fillStyle = highlightGradient;
             this.ctx.beginPath();
-            this.ctx.arc(x, y, radius, 0, Math.PI * 2);
+            this.ctx.arc(0, 0, radius, 0, Math.PI * 2);
             this.ctx.fill();
 
-            // 绘制数字
+            // 绘制球体边框（增强立体感）
+            this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            this.ctx.lineWidth = 2;
+            this.ctx.beginPath();
+            this.ctx.arc(0, 0, radius, 0, Math.PI * 2);
+            this.ctx.stroke();
+
+            // 绘制数字（反向旋转以保持水平）
+            this.ctx.rotate(-angle);
             this.ctx.fillStyle = colors.text;
-            this.ctx.font = `bold ${radius * 0.8}px Arial`;
+            
+            // 根据数字大小调整字体
+            let fontSize = radius * 0.7;
+            if (value >= 1024) fontSize = radius * 0.5;
+            else if (value >= 128) fontSize = radius * 0.6;
+            
+            this.ctx.font = `bold ${fontSize}px Arial`;
             this.ctx.textAlign = 'center';
             this.ctx.textBaseline = 'middle';
-            this.ctx.fillText(value, x, y);
+            
+            // 添加文字阴影增强可读性
+            this.ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            this.ctx.shadowBlur = 4;
+            this.ctx.shadowOffsetX = 1;
+            this.ctx.shadowOffsetY = 1;
+            
+            this.ctx.fillText(value, 0, 0);
+            
+            this.ctx.restore();
         });
     }
 
