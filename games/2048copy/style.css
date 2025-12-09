@@ -1,0 +1,563 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.game-container {
+    max-width: 600px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* 头部 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.title-section {
+    flex: 1;
+}
+
+.game-title {
+    font-size: 42px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.subtitle {
+    display: block;
+    font-size: 14px;
+    color: #999;
+    margin-top: 5px;
+    -webkit-text-fill-color: #999;
+}
+
+.score-section {
+    display: flex;
+    gap: 10px;
+}
+
+.score-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    padding: 10px 15px;
+    text-align: center;
+    min-width: 80px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.score-box.best {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.score-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.score-value {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+
+/* 关卡条 */
+.level-bar {
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 12px;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.level-info {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.level-label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+}
+
+.level-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.progress-container {
+    flex: 1;
+    height: 8px;
+    background: rgba(102, 126, 234, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.target-info {
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+}
+
+.target-score {
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* 控制按钮 */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    background: white;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #667eea;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.control-btn:hover {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+.control-btn.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 游戏区域 */
+.game-area {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+/* 卡牌堆 */
+.deck-container {
+    flex-shrink: 0;
+}
+
+.deck {
+    width: 100px;
+    height: 140px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    position: relative;
+}
+
+.deck:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+}
+
+.deck:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.deck-icon {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.deck-label {
+    font-size: 12px;
+    color: white;
+    font-weight: 600;
+}
+
+.deck-count {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+/* 卡槽 */
+.slots-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.slot {
+    aspect-ratio: 3/4;
+    background: rgba(102, 126, 234, 0.1);
+    border: 3px dashed rgba(102, 126, 234, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.slot.highlight {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
+    border-style: solid;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+.slot.occupied {
+    border-style: solid;
+    border-color: transparent;
+}
+
+.slot-placeholder {
+    font-size: 12px;
+    color: rgba(102, 126, 234, 0.5);
+    font-weight: 600;
+}
+
+/* 卡片 */
+.card {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: grab;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.3) 100%);
+    pointer-events: none;
+}
+
+.card:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+    z-index: 1000;
+}
+
+.card.dragging {
+    opacity: 0.8;
+    cursor: grabbing;
+    transform: scale(1.15) rotate(5deg);
+    z-index: 1000;
+}
+
+.card-value {
+    position: relative;
+    z-index: 1;
+}
+
+/* 卡片颜色 */
+.card[data-value="2"] { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+.card[data-value="4"] { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+.card[data-value="8"] { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+.card[data-value="16"] { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; }
+.card[data-value="32"] { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; }
+.card[data-value="64"] { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); color: white; }
+.card[data-value="128"] { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; }
+.card[data-value="256"] { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #333; }
+.card[data-value="512"] { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #333; }
+.card[data-value="1024"] { background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%); color: white; font-size: 24px; }
+.card[data-value="2048"] { background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); color: white; font-size: 24px; }
+.card[data-value="4096"] { background: linear-gradient(135deg, #f77062 0%, #fe5196 100%); color: white; font-size: 20px; }
+
+/* 弃牌堆 */
+.discard-container {
+    flex-shrink: 0;
+}
+
+.discard-pile {
+    width: 100px;
+    height: 140px;
+    background: rgba(150, 150, 150, 0.3);
+    border: 3px dashed rgba(150, 150, 150, 0.5);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.discard-pile.highlight {
+    background: rgba(255, 100, 100, 0.2);
+    border-color: #ff6464;
+    border-style: solid;
+}
+
+.discard-icon {
+    font-size: 40px;
+    opacity: 0.5;
+}
+
+.discard-label {
+    font-size: 12px;
+    color: #999;
+    font-weight: 600;
+}
+
+/* 下一张卡片预览 */
+.next-card-preview {
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.next-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+}
+
+.preview-card {
+    width: 60px;
+    height: 80px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 说明 */
+.instructions {
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.instructions p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.8;
+    margin: 5px 0;
+}
+
+/* 遮罩层 */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.overlay-content {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    animation: slideUp 0.3s;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.overlay-title {
+    font-size: 32px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.overlay-message {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.overlay-score {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.overlay-score .score-item {
+    flex: 1;
+}
+
+.overlay-score .label {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+.overlay-score .value {
+    font-size: 36px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.overlay-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.overlay-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.overlay-btn.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.overlay-btn.secondary {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}
+
+.overlay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* 响应式 */
+@media (max-width: 500px) {
+    .game-title {
+        font-size: 32px;
+    }
+
+    .game-area {
+        flex-direction: column;
+    }
+
+    .slots-container {
+        width: 100%;
+    }
+
+    .deck, .discard-pile {
+        width: 80px;
+        height: 110px;
+    }
+}

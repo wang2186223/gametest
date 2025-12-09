@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>2048 Card Master</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 头部信息 -->
+        <header class="header">
+            <div class="title-section">
+                <h1 class="game-title">2048<span class="subtitle">Card Master</span></h1>
+            </div>
+            <div class="score-section">
+                <div class="score-box">
+                    <div class="score-label">分数</div>
+                    <div id="currentScore" class="score-value">0</div>
+                </div>
+                <div class="score-box best">
+                    <div class="score-label">最高</div>
+                    <div id="bestScore" class="score-value">0</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 关卡信息 -->
+        <div class="level-bar">
+            <div class="level-info">
+                <span class="level-label">关卡</span>
+                <span id="currentLevel" class="level-number">1</span>
+            </div>
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <div class="target-info">
+                <span class="target-label">目标: </span>
+                <span id="targetScore" class="target-score">500</span>
+            </div>
+        </div>
+
+        <!-- 控制按钮 -->
+        <div class="controls">
+            <button id="undoBtn" class="control-btn" title="撤销">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 7v6h6M21 17v-6h-6" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M3 13a9 9 0 0 1 9-9 9 9 0 0 1 9 9" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                撤销
+            </button>
+            <button id="hintBtn" class="control-btn" title="提示">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                    <path d="M12 16v-4M12 8h.01" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                提示
+            </button>
+            <button id="newGameBtn" class="control-btn primary" title="新游戏">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M4 4v5h5M20 20v-5h-5" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M20.5 4.5l-4.5 4.5M3.5 19.5l4.5-4.5" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                新游戏
+            </button>
+        </div>
+
+        <!-- 游戏区域 -->
+        <div class="game-area">
+            <!-- 卡牌堆 -->
+            <div class="deck-container">
+                <div class="deck" id="deck">
+                    <div class="deck-icon">🎴</div>
+                    <div class="deck-label">卡牌堆</div>
+                    <div id="deckCount" class="deck-count">52</div>
+                </div>
+            </div>
+
+            <!-- 4个卡槽 -->
+            <div class="slots-container" id="slotsContainer">
+                <div class="slot" data-slot="0">
+                    <div class="slot-placeholder">空槽</div>
+                </div>
+                <div class="slot" data-slot="1">
+                    <div class="slot-placeholder">空槽</div>
+                </div>
+                <div class="slot" data-slot="2">
+                    <div class="slot-placeholder">空槽</div>
+                </div>
+                <div class="slot" data-slot="3">
+                    <div class="slot-placeholder">空槽</div>
+                </div>
+            </div>
+
+            <!-- 弃牌堆 -->
+            <div class="discard-container">
+                <div class="discard-pile" id="discardPile">
+                    <div class="discard-icon">♠</div>
+                    <div class="discard-label">弃牌堆</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 下一张卡片预览 -->
+        <div class="next-card-preview">
+            <div class="next-label">下一张</div>
+            <div id="nextCard" class="preview-card">
+                <div class="card-value">2</div>
+            </div>
+        </div>
+
+        <!-- 说明 -->
+        <div class="instructions">
+            <p>📌 从卡牌堆点击获取卡片</p>
+            <p>🎯 拖动卡片到空槽或相同数字卡片上</p>
+            <p>✨ 相同数字合并翻倍，达到目标分数升级</p>
+        </div>
+
+        <!-- 游戏结束遮罩 -->
+        <div id="gameOverlay" class="overlay hidden">
+            <div class="overlay-content">
+                <h2 id="overlayTitle" class="overlay-title">游戏结束</h2>
+                <div class="overlay-message" id="overlayMessage"></div>
+                <div class="overlay-score">
+                    <div class="score-item">
+                        <div class="label">本局得分</div>
+                        <div id="finalScore" class="value">0</div>
+                    </div>
+                    <div class="score-item">
+                        <div class="label">最高关卡</div>
+                        <div id="finalLevel" class="value">1</div>
+                    </div>
+                </div>
+                <div class="overlay-buttons">
+                    <button id="retryBtn" class="overlay-btn primary">再来一局</button>
+                    <button id="continueBtn" class="overlay-btn secondary hidden">继续游戏</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

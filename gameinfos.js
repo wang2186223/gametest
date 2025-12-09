@@ -46,6 +46,14 @@ const games_infos = {
             "url": "/games/2048-l/index.html",
             "des": "Physics-based falling ball 2048 game",
             "category": ["09"]
+        },
+        {
+            "id": "000005",
+            "gname": "2048 Card Master",
+            "icon": "2048-cards.jpg",
+            "url": "/games/2048copy/index.html",
+            "des": "Card-based 2048 with drag and drop",
+            "category": ["09"]
         }
     ]
 }
