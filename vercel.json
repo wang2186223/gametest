@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "2048-games",
-  "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
     {
