@@ -30,6 +30,14 @@ const games_infos = {
             "url": "/games/2048-remastered/v1.0.2/index.html",
             "des": "2048 puzzle game remastered",
             "category": ["09"]
+        },
+        {
+            "id": "000003",
+            "gname": "2048 JS Edition",
+            "icon": "2048-cards.jpg",
+            "url": "/games/2048js/index.html",
+            "des": "Pure JavaScript 2048 - Fully customizable",
+            "category": ["09"]
         }
     ]
 }

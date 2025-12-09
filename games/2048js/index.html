@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>2048</h1>
+            <div class="scores">
+                <div class="score-container">
+                    <div class="score-title">分数</div>
+                    <div id="score" class="score-value">0</div>
+                </div>
+                <div class="score-container">
+                    <div class="score-title">最高分</div>
+                    <div id="best-score" class="score-value">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-intro">
+            <p>合并数字，达到 <strong>2048</strong>！</p>
+            <div class="buttons">
+                <button id="new-game" class="button">新游戏</button>
+                <button id="undo" class="button">撤销</button>
+            </div>
+        </div>
+
+        <div id="game-container" class="game-container">
+            <div id="grid-container" class="grid-container"></div>
+            <div id="tile-container" class="tile-container"></div>
+        </div>
+
+        <div class="instructions">
+            <p><strong>操作说明：</strong>使用方向键或滑动屏幕来移动方块。相同数字的方块碰撞时会合并成一个！</p>
+        </div>
+
+        <div id="game-message" class="game-message hidden">
+            <div class="message-content">
+                <h2 id="message-title"></h2>
+                <p id="message-text"></p>
+                <button id="retry-button" class="button">再玩一次</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
