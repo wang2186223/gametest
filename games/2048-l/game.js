@@ -31,7 +31,8 @@ const CONFIG = {
     restitution: 0.3,
     friction: 0.1,
     mergeDelay: 100,
-    gameOverLine: 100
+    gameOverLine: 150,  // 游戏结束线高度（增加到150）
+    dropHeight: 80      // 球体投放高度
 };
 
 class Ball2048Game {
@@ -186,7 +187,7 @@ class Ball2048Game {
         const radius = this.getBallRadius(this.nextBallValue);
         x = Math.max(radius + 10, Math.min(x, this.canvas.width - radius - 10));
 
-        const ball = Bodies.circle(x, 50, radius, {
+        const ball = Bodies.circle(x, CONFIG.dropHeight, radius, {
             restitution: CONFIG.restitution,
             friction: CONFIG.friction,
             render: {
@@ -332,13 +333,28 @@ class Ball2048Game {
     }
 
     checkGameOver() {
+        // 检查是否有球静止在危险区域超过2秒
+        const dangerZone = CONFIG.gameOverLine;
+        
         for (const ball of this.balls) {
-            if (ball.position.y < CONFIG.gameOverLine) {
-                if (!this.gameOver) {
-                    this.gameOver = true;
-                    setTimeout(() => this.showGameOver(), 500);
+            // 只检查速度很小（基本静止）的球
+            const velocity = Math.abs(ball.velocity.y) + Math.abs(ball.velocity.x);
+            
+            if (ball.position.y < dangerZone && velocity < 0.5) {
+                // 标记球体进入危险时间
+                if (!ball.dangerTime) {
+                    ball.dangerTime = Date.now();
+                } else if (Date.now() - ball.dangerTime > 2000) {
+                    // 在危险区域静止超过2秒
+                    if (!this.gameOver) {
+                        this.gameOver = true;
+                        setTimeout(() => this.showGameOver(), 500);
+                    }
+                    break;
                 }
-                break;
+            } else {
+                // 离开危险区域，重置计时
+                ball.dangerTime = null;
             }
         }
     }
